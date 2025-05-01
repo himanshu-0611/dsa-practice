@@ -2,12 +2,12 @@
 using namespace std;
 
 void printPascalTriangle(int n) {
-    cout << "1" << endl;
-    for(int row=1; row<=n; row++) {
-        int val = 1;
-        for(int col=1; col<=row+1; col++) {
+    // cout << "1" << endl; // * This is first row
+    for(int row=1; row<=n; row++) { 
+        int val = 1; 
+        for(int col=1; col<=row; col++) {
             cout << val << " ";
-            val = val * (row-col+1) / col;
+            val = val * (row-col) / col;
         }
         cout << endl;
     }
