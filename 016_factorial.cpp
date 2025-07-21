@@ -9,6 +9,22 @@ unsigned long long printFactorial(unsigned long long n) {
     return n * printFactorial(n-1);
 }
 
+    if(n == 1 || n == 0) return 1;
+    return n * printFactorial(n-1);
+}
+
+int main(){
+    cout << printFactorial(5);
+    return 0;
+}    if(n == 1 || n == 0) return 1;
+     return n * printFactorial(n-1);
+ }
+
+ int main(){
+     cout << printFactorial(5);
+     return 0;
+ }
+
 int main(){
     cout << printFactorial(5);
     return 0;
