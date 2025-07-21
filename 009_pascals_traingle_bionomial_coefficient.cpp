@@ -6,15 +6,7 @@ using namespace std;
 
 long int getFactorial(int n) {
     if(n>=1) return n*getFactorial(n-1);
-    else return 1;
-}
 
-void printPascalTriangle(int n) {
-    for(int row=0; row<n; row++) {
-        for(int col=0; col<=row; col++) {
-            cout << getFactorial(row)/(getFactorial(row-col) * getFactorial(col)) << " ";
-        }
-        cout << endl;
     }
 }
 
