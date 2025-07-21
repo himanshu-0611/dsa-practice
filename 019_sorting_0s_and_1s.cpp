@@ -3,13 +3,7 @@
 using namespace std;
 
 void sorting0sAnd1s() {
-    int n; cout << "Enter the size of array: ";
-    cin >> n;
-    cout << "Input the array: ";
-    vector<int> v;
-    for(int i=0; i<n; i++) {
-        int x; cin >> x; v.push_back(x);
-    }
+
 
     int left = 0, right = v.size()-1;
 
