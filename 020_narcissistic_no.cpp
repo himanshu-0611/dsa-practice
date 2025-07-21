@@ -1,19 +1,5 @@
 #include<iostream>
-#include<vector>
-#include<math.h>
-using namespace std;
 
-void printV(vector<int> v) {
-    cout << "\nPrinting the vector: ";
-    for(int i=0; i<v.size(); i++) cout << v[i] << " ";
-}
-
-//TC: n square
-
-string isNarcissistic(int num) {
-    int ch = 0, orig = num, x = num, count = 0;
-    while(x) {
-        count++;
         x /= 10;
     }
     while(num) {
