@@ -77,32 +77,80 @@ void printArr(int* arr, int size, int idx) {
     printArr(arr, size, ++idx);
 }
 
-int main() {
-    int arr[] = {44, 11, 55, 22, 99};
-
-    int idx = 0;
-    cout << "Print Array: ";
-    printArr(arr, 5, idx);
+vector<int>printAllOddNumbers(const vector<int>& arr, int index) {
     
-    cout << endl << "Print Arr Rev: ";
-    printArrRev(arr, 5, idx);
+    //index is the max size
+    //so decrease index and 
+    //base case: if index <= 0 return vector<int> temp;
 
-    cout << endl << "Element found at: " <<
-    searchEle(arr, 5, 111);
+    //v.insert = (arr, index-1)
 
-    int mini = INT_MAX;
-    cout << endl << "Min Val: " <<
-    minVal(arr, 5, mini);
+    //if index%2 != 0
+        //v.pb(arr[index-1])
 
-    int maxi = INT_MIN;
-    cout << endl << "Max Val: " <<
-    maxVal(arr, 5, maxi);
+    //return v
 
-    cout << endl;
-    printOddNos(arr, 5);
+    //base case
+    if(index <= 0) return vector<int>();
 
-    cout << endl;
-    printEvenNos(arr, 5);
+    cout  << " HIII ";
+
+    vector<int> v;
+
+    cout << "arr " << arr[index-1];
+
+    v = printAllOddNumbers(arr, index-1);
+
+    if(arr[index-1] % 2 != 0) v.push_back(arr[index-1]);
+
+    return v; 
+
+}
+
+int searchElementRecursive(const vector<int>& arr, int t, int size) {
+    if(size <= 0) return -1;
+
+    if(arr[size-1] == t) return size-1;
+
+    return searchElementRecursive(arr, t, size-1);
+}
+
+int main() {
+    // int arr[] = {44, 11, 55, 22, 99};
+
+    vector<int> arr = {1,2,3,4,5};
+    cout << searchElementRecursive(arr, 4, 5);
+    // vector<int> x = printAllOddNumbers(arr, 5);
+    // for(auto it : x) {
+    //     cout << "x: " << it << endl;
+    // }
+
+    
+
+
+    // int idx = 0;
+    // cout << "Print Array: ";
+    // printArr(arr, 5, idx);
+    
+    // cout << endl << "Print Arr Rev: ";
+    // printArrRev(arr, 5, idx);
+
+    // cout << endl << "Element found at: " <<
+    // searchEle(arr, 5, 111);
+
+    // int mini = INT_MAX;
+    // cout << endl << "Min Val: " <<
+    // minVal(arr, 5, mini);
+
+    // int maxi = INT_MIN;
+    // cout << endl << "Max Val: " <<
+    // maxVal(arr, 5, maxi);
+
+    // cout << endl;
+    // printOddNos(arr, 5);
+
+    // cout << endl;
+    // printEvenNos(arr, 5);
 
     return 0;
 }
