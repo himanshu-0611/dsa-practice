@@ -1,0 +1,65 @@
+class Solution {
+  public:
+    bool checkCycleUsingBfs(
+    int src,
+    unordered_map<int, vector<int>>& adjList,
+    queue<int>& q,
+    unordered_map<int, bool>& visited,
+    unordered_map<int, int>& parent
+    ) {   
+        
+        
+        
+        //initial state
+        q.push(src);
+        visited[src] = true;
+        parent[src] = -1;
+        
+        //main logic
+        while(!q.empty()) {
+            int currNode = q.front();
+            q.pop();
+            
+            for(auto nbr : adjList[currNode]) {
+                if(!visited[nbr]) {
+                    q.push(nbr);
+                    visited[nbr] = true;
+                    parent[nbr] = currNode;
+                } else if(visited[nbr] == true && nbr != parent[currNode]) {
+                    //cycle present
+                    return true;
+                } 
+            } 
+            
+            
+        }
+        
+        return false;
+    }
+    bool isCycle(int V, vector<vector<int>>& edges) {
+        // step1: create adjacency list
+        unordered_map<int, vector<int>> adjList;
+        
+        for(auto i : edges) {
+            //i->vector<int>
+            int u = i[0];
+            int v = i[1];
+            //u--v
+            //u->v, v->u
+            adjList[u].push_back(v);
+            adjList[v].push_back(u);
+        }
+        //adj list is ready
+        //apne ko bfs se cycle pata lagani h
+        queue<int> q;
+        unordered_map<int, bool> visited;
+        unordered_map<int, int> parent;
+        for(int src = 0; src<V; src++) {
+            if(!visited[src]) {
+                bool ans = checkCycleUsingBfs(src, adjList, q, visited, parent);
+                if(ans == true) return true;
+            }
+        }
+        return false;
+    }
+};

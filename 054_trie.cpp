@@ -41,7 +41,7 @@ void storeSuggestions(TrieNode* root, vector<string>& output, string prefix) {
     //current node se har jaga move krna h
     // i.first = ch
     // i.second = address of node
-    for(auto i : root->children) {124
+    for(auto i : root->children) {
         char ch = i.first;
         TrieNode* next = i.second;
         if(next != NULL) {
